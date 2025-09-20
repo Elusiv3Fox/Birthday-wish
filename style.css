@@ -1,0 +1,92 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.card h1, .card p, .card img {
+    animation-name: fadeIn;
+    animation-duration: 2s; /* 2 စက္ကန့်ကြာအောင် ဖြည်းဖြည်းချင်းပေါ်လာမယ် */
+    animation-fill-mode: forwards;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fce4ec;
+}
+img {
+	width:200px;
+	high:200px;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* အရွယ်အစား နည်းနည်းလေး ကြီးလာမယ် */
+    100% { transform: scale(1); }
+}
+
+/* ဥပမာအနေနဲ့ ပုံကို လှုပ်ခတ်နေအောင် လုပ်မယ်ဆိုရင် */
+.card img {
+    animation-name: pulse;
+    animation-duration: 1.5s; /* 1.5 စက္ကန့်ကြာမယ် */
+    animation-iteration-count: infinite; /* အမြဲတမ်း ဆက်တိုက် လှုပ်ခတ်နေမယ် */
+}
+
+.balloon {
+    position: fixed;
+    bottom: -100px;
+    width: 40px;
+    height: 40px;
+    background-color: #ff69b4; /* အရောင်ကို စိတ်ကြိုက်ပြောင်းနိုင်ပါတယ် */
+    border-radius: 50%;
+    animation-name: rise;
+    animation-timing-function: linear;
+}
+.heart {
+    position: fixed;
+    bottom: -50px;
+    width: 50px;
+    height: 45px;
+    animation-name: rise;
+    animation-timing-function: linear;
+}
+
+/* အသည်းရဲ့ အောက်ခြေပုံစံကို ဖန်တီးခြင်း */
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 25px;
+    height: 40px;
+    background-color: #ff69b4; /* အရောင်ကို စိတ်ကြိုက်ပြောင်းနိုင်ပါတယ် */
+    border-radius: 50px 50px 0 0;
+}
+
+/* အသည်းရဲ့ ဘယ်ဘက်ခြမ်း */
+.heart::before {
+    left: 25px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+/* အသည်းရဲ့ ညာဘက်ခြမ်း */
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes rise {
+    from { bottom: -50px; }
+    to { bottom: calc(100vh + 50px); }
+}
+
+
+@keyframes rise {
+    from { bottom: -100px; }
+    to { bottom: calc(100vh + 100px); }
+}
